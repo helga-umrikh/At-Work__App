@@ -37,8 +37,15 @@ h6 {
 body {
   height: 100%;
   margin: 0 auto;
+  background-color: #F4F4F4;
 }
 
 #root {
   height: 100%;
+}
+
+.page-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
 }

@@ -1,0 +1,21 @@
+import React from 'react'
+import './CardsContainersStyles.scss'
+import Card from '../Card/Card'
+
+const ActiveCards = () => {
+    return (
+        <div className="cards-container">
+            <div>
+                <h3 className="heading">Активные</h3>
+                <hr className="divider" />
+            </div>
+            <div>
+                <Card />
+                <Card />
+                <Card />
+            </div>
+        </div>
+    )
+}
+
+export default ActiveCards
