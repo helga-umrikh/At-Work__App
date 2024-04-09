@@ -6,7 +6,7 @@ import leftArrowIcon from '../../assets/arrow-left.svg'
 const ToHomePage = () => {
   return (
     <div className='to-home-page'>
-      <Link to={'/'}>
+      <Link to={'/users'}>
         <div className='to-home-page__container'>
           <div className='to-home-page__arrow'>
             <img src={leftArrowIcon} alt="left arrow" />
