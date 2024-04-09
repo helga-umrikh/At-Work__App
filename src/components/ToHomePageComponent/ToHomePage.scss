@@ -1,0 +1,21 @@
+.to-home-page {
+  padding: 20.5px 0;
+  margin: 0 0 24px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__arrow {
+    margin: 0 15px 0 0;
+  }
+
+  &__title {
+    font-family: 'Manrope';
+    font-weight: 600;
+    font-size: 20px;
+    color: #595959;
+  }
+}
