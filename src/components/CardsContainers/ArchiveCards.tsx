@@ -1,6 +1,6 @@
 import React from 'react'
 import './CardsContainersStyles.scss'
-import Card from '../Card/Card'
+import Card from '../Card/Card';
 
 const ArchiveCards = () => {
     return (
@@ -10,9 +10,6 @@ const ArchiveCards = () => {
                 <hr className="divider" />
             </div>
             <div>
-                <Card />
-                <Card />
-                <Card />
             </div>
         </div>
     )

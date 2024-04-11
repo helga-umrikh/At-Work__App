@@ -1,34 +1,88 @@
-import React from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import './Card.scss'
-import userPhoto from '../../assets/user__photo.png'
+import { IUserCard } from '../../interfaces/IUserCard'
+import { useNavigate } from 'react-router-dom'
 
-const Card = () => {
+interface CardProps {
+    cardData: IUserCard
+    isActive: boolean
+}
+
+const Card: FC<CardProps> = ({ cardData, isActive }) => {
+    const [isCardActive, setisCardActive] = useState<boolean>(false)
+    const [isDropDownShown, setIsDropDownShown] = useState<boolean>(false)
+    const { id, username, address, company } = cardData
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        setisCardActive(isActive)
+    }, [isActive])
+
+    const handleIsActiveCard = () => {
+        setisCardActive(!isCardActive)
+        setIsDropDownShown(!isDropDownShown)
+    }
+
+    const handleToggleDropDown = () => {
+        setIsDropDownShown(!isDropDownShown)
+    }
+
+    const handleNavigateToEdit = () => {
+        navigate(`/edit/:${id}`)
+    }
+
     return (
         <div className="card">
             <div className="card__avatar">
-                <img src={userPhoto} alt="user avatar" />
+                <img src={'/assets/user__photo.png'} alt="user avatar" />
             </div>
             <div className="card__content">
                 <div className="content__data">
                     <div>
-                        <p className="content__name">Ivan1234</p>
-                        <p className="content__company">At-Work</p>
+                        <p className="content__name">
+                            {username.length > 10
+                                ? username.substring(0, 10) + '...'
+                                : username}
+                        </p>
+                        <p className="content__company">{company.name}</p>
                     </div>
-                    <p className="content__city">Санкт-Петербург</p>
+                    <p className="content__city">{address.city}</p>
                 </div>
-                <div className="content__options-btn">
+                <div
+                    className="content__options-btn"
+                    onClick={handleToggleDropDown}
+                >
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
-                <div className="content__dropdown-options">
-                    <button className="content__option">Редактировать</button>
-                    <button className='content__option'>Архивировать</button>
-                    <button className='content__option'>Скрыть</button>
-                </div>
-                <div className="content__dropdown-options">
-                <button className="content__option">Активировать</button>
-                </div>
+                {isCardActive && isDropDownShown && (
+                    <div className="content__dropdown-options">
+                        <button
+                            className="content__option"
+                            onClick={handleNavigateToEdit}
+                        >
+                            Редактировать
+                        </button>
+                        <button
+                            className="content__option"
+                            onClick={handleIsActiveCard}
+                        >
+                            Архивировать
+                        </button>
+                        <button className="content__option">Скрыть</button>
+                    </div>
+                )}
+                {!isCardActive && isDropDownShown && (
+                    <div className="content__dropdown-options">
+                        <button
+                            className="content__option"
+                            onClick={handleIsActiveCard}
+                        >
+                            Активировать
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     )

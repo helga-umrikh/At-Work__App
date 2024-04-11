@@ -5,10 +5,10 @@ import ActiveCards from '../../components/CardsContainers/ActiveCards'
 const HomePage = () => {
     return (
         <div className="home-page">
-          <div className="page-wrapper">
-            <ActiveCards />
-            <ArchiveCards />
-          </div>
+            <div className="page-wrapper">
+                <ActiveCards />
+                <ArchiveCards />
+            </div>
         </div>
     )
 }
