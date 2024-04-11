@@ -1,5 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import './Card.scss'
+import { useDispatch } from 'react-redux'
+import { archiveCard, activateCard } from '../../redux/slices/userCardsSlice'
 import { IUserCard } from '../../interfaces/IUserCard'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,12 +15,19 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
     const [isDropDownShown, setIsDropDownShown] = useState<boolean>(false)
     const { id, username, address, company } = cardData
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setisCardActive(isActive)
     }, [isActive])
 
     const handleIsActiveCard = () => {
+        if (isCardActive) {
+            dispatch(archiveCard(cardData))
+        } else {
+            dispatch(activateCard(cardData))
+        }
+
         setisCardActive(!isCardActive)
         setIsDropDownShown(!isDropDownShown)
     }
@@ -32,7 +41,7 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
     }
 
     return (
-        <div className="card">
+        <div className={`card ${!isActive && '_monochrome'}`}>
             <div className="card__avatar">
                 <img src={'/assets/user__photo.png'} alt="user avatar" />
             </div>

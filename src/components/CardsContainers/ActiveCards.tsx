@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from 'redux-thunk'
 import { Action } from 'redux'
 import { fetchCards } from '../../redux/slices/userCardsSlice'
-import { IUserCard } from '../../interfaces/IUserCard'
 import { IState } from '../../interfaces/UserCardsState'
+import { IUserCard } from '../../interfaces/IUserCard'
 
 const ActiveCards = () => {
     const dispatch: ThunkDispatch<IState, void, Action> = useDispatch()
