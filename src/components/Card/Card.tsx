@@ -1,7 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
 import './Card.scss'
 import { useDispatch } from 'react-redux'
-import { archiveCard, activateCard } from '../../redux/slices/userCardsSlice'
+import {
+    archiveCard,
+    activateCard,
+    deleteCard,
+} from '../../redux/slices/userCardsSlice'
 import { IUserCard } from '../../interfaces/IUserCard'
 import { useNavigate } from 'react-router-dom'
 
@@ -37,7 +41,7 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
     }
 
     const handleNavigateToEdit = () => {
-        navigate(`/edit/:${id}`)
+        navigate(`/edit/${id}`)
     }
 
     return (
