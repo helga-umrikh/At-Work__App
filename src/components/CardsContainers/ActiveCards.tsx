@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './CardsContainersStyles.scss'
 import Card from '../Card/Card'
-import { useDispatch, useSelector } from 'react-redux'
-import { ThunkDispatch } from 'redux-thunk'
-import { Action } from 'redux'
-import { fetchCards } from '../../redux/slices/userCardsSlice'
+import { useSelector } from 'react-redux'
 import { IState } from '../../interfaces/UserCardsState'
 import { IUserCard } from '../../interfaces/IUserCard'
 
 const ActiveCards = () => {
-    const dispatch: ThunkDispatch<IState, void, Action> = useDispatch()
+    const data = useSelector(
+        (state: IState) => state.addUserCard.activeCards
+    ).slice(0, 6)
 
-    useEffect(() => {
-        dispatch(fetchCards())
-    }, [dispatch])
-
-    const data = useSelector((state: IState) => state.addUserCard.activeCards)
     return (
         <div className="cards-container">
             <div>
