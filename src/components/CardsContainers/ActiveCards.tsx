@@ -13,19 +13,19 @@ const ActiveCards = () => {
     ).slice(0, 6)
 
     return (
-        <div className="active-cards">
+        <div className="cards">
             <div>
                 <h3 className="heading">Активные</h3>
                 <hr className="divider" />
             </div>
             <div>
                 {pending && (
-                    <div className="active-cards__spin">
+                    <div className="cards__spin">
                         <Spin />
                     </div>
                 )}
                 {data && (
-                    <div className="active-cards__cards-container">
+                    <div className="cards__container">
                         {data.map((item: IUserCard) => {
                             return (
                                 <Card

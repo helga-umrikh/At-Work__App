@@ -9,22 +9,25 @@ const ArchiveCards = () => {
     const data = useSelector((state: IState) => state.addUserCard.archivedCards)
 
     return (
-        <div className="cards-container">
+        <div className="cards">
             <div>
                 <h3 className="heading">Архив</h3>
                 <hr className="divider" />
             </div>
             <div>
-            {data &&
-                    data.map((item: IUserCard) => {
-                        return (
-                            <Card
-                                key={item.id}
-                                cardData={item}
-                                isActive={false}
-                            />
-                        )
-                    })}
+                {data && (
+                    <div className="cards__container">
+                        {data.map((item: IUserCard) => {
+                            return (
+                                <Card
+                                    key={item.id}
+                                    cardData={item}
+                                    isActive={false}
+                                />
+                            )
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -104,3 +104,46 @@
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
+
+@media screen and (max-width: 500px) {
+    .card {
+        flex-direction: column;
+        max-width: 161px;
+        padding: 16px;
+
+        &__avatar {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        &__content {
+            margin: 16px 0 0 0;
+        }
+    }
+
+    .content {
+        &__name {
+            font-size: 18px;
+        }
+
+        &__company {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        &__city {
+            font-size: 10px;
+        }
+
+        &__options-btn {
+            & > div {
+                width: 2.5px;
+                height: 2.5px;
+            }
+        }
+
+        &__dropdown-options {
+            width: 160px;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-.active-cards {
+.cards {
     margin: 40px 0 0 0;
 
     & > div:first-of-type {
@@ -13,7 +13,7 @@
         justify-content: center;
     }
 
-    &__cards-container {
+    &__container {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -30,4 +30,10 @@
 
 .divider {
     border-top: 2px solid #dadada;
+}
+
+@media screen and (max-width: 500px) {
+    .heading {
+        margin: 0 0 16px 0;
+    }
 }
