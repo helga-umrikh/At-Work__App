@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeCard } from '../../redux/slices/userCardsSlice'
 import { useParams } from 'react-router-dom'
 import { IState } from '../../interfaces/UserCardsState'
-import { Spin } from 'antd'
+import { Modal, Spin } from 'antd'
 
 const EditorWidget = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     let { id } = useParams()
     const dispatch = useDispatch()
 
@@ -25,6 +26,13 @@ const EditorWidget = () => {
 
     const handleSumbitForm = () => {
         inputValuesState && dispatch(changeCard(inputValuesState))
+    }
+
+    const handleShowModal = () => {
+        setIsModalOpen(true);
+        setTimeout(() => {
+            setIsModalOpen(false)
+        }, 4000)
     }
 
     return (
@@ -175,6 +183,7 @@ const EditorWidget = () => {
                                 onClick={(event) => {
                                     event.preventDefault()
                                     handleSumbitForm()
+                                    handleShowModal()
                                 }}
                             >
                                 Сохранить
@@ -186,6 +195,22 @@ const EditorWidget = () => {
                 <div className="editor__spin">
                     <Spin />
                 </div>
+            )}
+            {isModalOpen && (
+                <Modal
+                    open={isModalOpen}
+                    onOk={() => {}}
+                    onCancel={() => {
+                        setIsModalOpen(false)
+                    }}
+                    okButtonProps={{ style: { display: 'none' } }}
+                    cancelButtonProps={{ style: { display: 'none' } }}
+                >
+                    <div className="modal__ok-symbol">
+                        <img src={'/assets/okIcon.png'} alt="ok symbol" />
+                    </div>
+                    <p className="modal__title">Изменения сохранены!</p>
+                </Modal>
             )}
         </div>
     )

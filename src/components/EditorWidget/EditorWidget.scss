@@ -112,3 +112,23 @@
 .active_tab {
     color: #161616 !important;
 }
+
+.ant-modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ant-modal-content {
+    max-width: 321px;
+}
+
+.modal {
+    &__title {
+        font-family: 'Manrope';
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+    }
+}
