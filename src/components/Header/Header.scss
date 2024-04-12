@@ -17,14 +17,9 @@
         margin: 0 0 0 10px;
     }
 
-    &__actions,
-    &__user {
+    &__actions {
         display: flex;
         flex-direction: row;
-    }
-
-    &__user {
-      margin: 0 14px 0 26px;
     }
 }
 
@@ -36,7 +31,13 @@
     }
 
     &__notifications {
-      margin: 0 0 0 4px;
+        margin: 0 0 0 4px;
+    }
+
+    &__user {
+        display: flex;
+        flex-direction: row;
+        margin: 0 14px 0 26px;
     }
 }
 
@@ -60,5 +61,32 @@
         font-family: 'Manrope';
         font-weight: 500;
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        &__container {
+            width: 100%;
+            height: 50px;
+            padding: 0 16px;
+        }
+    }
+
+    .actions {
+        &__likes,
+        &__notifications {
+            display: none;
+        }
+    }
+
+    .user {
+        &__avatar {
+            width: 28px;
+            height: 28px;
+        }
+        &__name {
+            display: none;
+        }
     }
 }

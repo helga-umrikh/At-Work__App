@@ -24,7 +24,7 @@ const Header = () => {
                             alt="notification icon"
                         />
                     </button>
-                    <div className="header__user">
+                    <div className="actions__user">
                         <div className="user__avatar">
                             <img
                                 src={'/assets/user__photo.png'}
