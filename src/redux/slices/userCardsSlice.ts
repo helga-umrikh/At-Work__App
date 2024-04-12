@@ -44,6 +44,26 @@ export const userCardsSlice = createSlice({
             )
             state.activeCards.push(action.payload)
         },
+
+        changeCard: (
+            state: UserCardsState,
+            action: PayloadAction<IUserCard>
+        ) => {
+            const { id } = action.payload
+            state.activeCards = state.activeCards.map((item) =>
+                item.id === id ? action.payload : item
+            )
+        },
+
+        deleteCard: (
+            state: UserCardsState,
+            action: PayloadAction<IUserCard>
+        ) => {
+            const { id } = action.payload
+            state.activeCards = state.activeCards.filter(
+                (item) => item.id !== id
+            )
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(
@@ -55,6 +75,7 @@ export const userCardsSlice = createSlice({
     },
 })
 
-export const { archiveCard, activateCard } = userCardsSlice.actions
+export const { archiveCard, activateCard, changeCard, deleteCard } =
+    userCardsSlice.actions
 
 export default userCardsSlice.reducer
