@@ -4,10 +4,10 @@ import ToHomePage from '../../components/ToHomePageComponent/ToHomePage'
 
 const EditPage = () => {
     return (
-        <div className='edit-page'>
+        <div className="edit-page">
             <div className="page-wrapper">
-              <ToHomePage />
-              <EditorWidget />
+                <ToHomePage />
+                <EditorWidget />
             </div>
         </div>
     )
