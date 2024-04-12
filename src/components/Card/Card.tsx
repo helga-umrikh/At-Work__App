@@ -44,6 +44,10 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
         navigate(`/edit/${id}`)
     }
 
+    const handleDeleteCard = () => {
+        dispatch(deleteCard(cardData))
+    }
+
     return (
         <div className={`card ${!isActive && '_monochrome'}`}>
             <div className="card__avatar">
@@ -83,7 +87,12 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
                         >
                             Архивировать
                         </button>
-                        <button className="content__option">Скрыть</button>
+                        <button
+                            className="content__option"
+                            onClick={handleDeleteCard}
+                        >
+                            Скрыть
+                        </button>
                     </div>
                 )}
                 {!isCardActive && isDropDownShown && (
