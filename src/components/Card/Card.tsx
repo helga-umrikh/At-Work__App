@@ -15,32 +15,32 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ cardData, isActive }) => {
-    const [isCardActive, setisCardActive] = useState<boolean>(false)
+    const [isCardActive, setIsCardActive] = useState<boolean>(false)
     const [isDropDownShown, setIsDropDownShown] = useState<boolean>(false)
     const { id, username, address, company } = cardData
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     useEffect(() => {
-        setisCardActive(isActive)
+        setIsCardActive(isActive)
     }, [isActive])
 
-    const handleIsActiveCard = () => {
+    const toggleCardState = () => {
         if (isCardActive) {
             dispatch(archiveCard(cardData))
         } else {
             dispatch(activateCard(cardData))
         }
 
-        setisCardActive(!isCardActive)
+        setIsCardActive(!isCardActive)
         setIsDropDownShown(!isDropDownShown)
     }
 
-    const handleToggleDropDown = () => {
+    const toggleDropDown = () => {
         setIsDropDownShown(!isDropDownShown)
     }
 
-    const handleNavigateToEdit = () => {
+    const navigateToEdit = () => {
         navigate(`/edit/${id}`)
     }
 
@@ -65,10 +65,7 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
                     </div>
                     <p className="content__city">{address.city}</p>
                 </div>
-                <div
-                    className="content__options-btn"
-                    onClick={handleToggleDropDown}
-                >
+                <div className="content__options-btn" onClick={toggleDropDown}>
                     <div></div>
                     <div></div>
                     <div></div>
@@ -77,13 +74,13 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
                     <div className="content__dropdown-options">
                         <button
                             className="content__option"
-                            onClick={handleNavigateToEdit}
+                            onClick={navigateToEdit}
                         >
                             Редактировать
                         </button>
                         <button
                             className="content__option"
-                            onClick={handleIsActiveCard}
+                            onClick={toggleCardState}
                         >
                             Архивировать
                         </button>
@@ -99,7 +96,7 @@ const Card: FC<CardProps> = ({ cardData, isActive }) => {
                     <div className="content__dropdown-options">
                         <button
                             className="content__option"
-                            onClick={handleIsActiveCard}
+                            onClick={toggleCardState}
                         >
                             Активировать
                         </button>
