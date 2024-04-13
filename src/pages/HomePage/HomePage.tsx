@@ -1,13 +1,22 @@
 import React from 'react'
-import ArchiveCards from '../../components/CardsContainers/ArchiveCards'
-import ActiveCards from '../../components/CardsContainers/ActiveCards'
+import { useSelector } from 'react-redux'
+import { IState } from '../../interfaces/UserCardsState'
+import CardsContainer from '../../components/CardsContainer/CardsContainer'
 
 const HomePage = () => {
+    const CardsData = useSelector((state: IState) => state.addUserCard)
+
     return (
         <div className="home-page">
             <div className="page-wrapper">
-                <ActiveCards />
-                <ArchiveCards />
+                <CardsContainer
+                    data={CardsData.activeCards}
+                    isActiveCards={true}
+                />
+                <CardsContainer
+                    data={CardsData.archivedCards}
+                    isActiveCards={false}
+                />
             </div>
         </div>
     )
