@@ -1,21 +1,25 @@
-import React from 'react'
-import './CardsContainersStyles.scss'
+import React, { FC } from 'react'
+import './CardsContainer.scss'
 import Card from '../Card/Card'
 import { useSelector } from 'react-redux'
-import { IState } from '../../interfaces/UserCardsState'
+import { IState, UserArray } from '../../interfaces/UserCardsState'
 import { IUserCard } from '../../interfaces/IUserCard'
 import { Spin } from 'antd'
 
-const ActiveCards = () => {
+interface CardsContainerProps {
+    data: UserArray
+    isActiveCards: boolean
+}
+
+const CardsContainer: FC<CardsContainerProps> = ({ data, isActiveCards }) => {
     const { pending, error } = useSelector((state: IState) => state.addUserCard)
-    const data = useSelector(
-        (state: IState) => state.addUserCard.activeCards
-    ).slice(0, 6)
 
     return (
         <div className="cards">
             <div>
-                <h3 className="heading">Активные</h3>
+                <h3 className="heading">
+                    {isActiveCards ? 'Активные' : 'Архивные'}
+                </h3>
                 <hr className="divider" />
             </div>
             <div>
@@ -31,7 +35,7 @@ const ActiveCards = () => {
                                 <Card
                                     key={item.id}
                                     cardData={item}
-                                    isActive={true}
+                                    isActive={isActiveCards}
                                 />
                             )
                         })}
@@ -43,4 +47,4 @@ const ActiveCards = () => {
     )
 }
 
-export default ActiveCards
+export default CardsContainer
