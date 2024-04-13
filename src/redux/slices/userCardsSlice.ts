@@ -84,7 +84,7 @@ export const userCardsSlice = createSlice({
             fetchCards.fulfilled,
             (state: UserCardsState, action: PayloadAction<UserArray>) => {
                 state.pending = false
-                state.activeCards = action.payload
+                state.activeCards = action.payload.slice(0, 6)
             }
         )
         builder.addCase(fetchCards.rejected, (state: UserCardsState) => {
