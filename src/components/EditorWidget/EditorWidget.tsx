@@ -29,7 +29,7 @@ const EditorWidget = () => {
     }
 
     const handleShowModal = () => {
-        setIsModalOpen(true);
+        setIsModalOpen(true)
         setTimeout(() => {
             setIsModalOpen(false)
         }, 4000)
