@@ -1,6 +1,6 @@
 import React from 'react'
 import EditorWidget from '../../components/EditorWidget/EditorWidget'
-import ToHomePage from '../../components/ToHomePageComponent/ToHomePage'
+import ToHomePage from '../../components/ToHomePage/ToHomePage'
 
 const EditPage = () => {
     return (
