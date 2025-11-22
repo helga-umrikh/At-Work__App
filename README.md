@@ -4,6 +4,11 @@
 
 This document will provide you with an overview of the app and guide you through the process of setting it up and starting it.
 
+![demo screenshot of the main page]('./demo-main')
+![demo screenshot of the editor page]('./demo-editor')
+
+<img src="./demo-editor" height="300" />
+
 **About the App**
 At-Work App is an interface for SPA application. It provides users with access to a wide range of user profiles cards. The app consists of two pages: the home page and the page with profile editing. The home page displays a list of available user cards, while the editing page provides editor widget to change profile data.
 
