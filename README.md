@@ -4,8 +4,8 @@
 
 This document will provide you with an overview of the app and guide you through the process of setting it up and starting it.
 
-![demo screenshot of the main page]('./demo-main.png')
-![demo screenshot of the editor page]('./demo-editor.png')
+![demo screenshot of the main page](demo-main.png)
+![demo screenshot of the editor page](demo-editor.png)
 
 <img src="./demo-editor" height="300" />
 
